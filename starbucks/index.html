@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>Responsive Landing Page Design</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    </head>
+    <body>
+        <section>
+            <header>
+                <a href="#" class="logo"><img src="logo.png"> STARBUCKS</a>
+                <div class="toggleMenu" onclick="toggleMenu();"></div>
+                <ul class="navigation">
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Rewards</a></li>
+                    <li><a href="">Gift Cards</a></li>
+                </ul>
+                <div class='search-box'>
+                    <input class = "search-text" type="text" placeholder = "Search">
+                    <a href="#" class = "search-btn">
+                    <i class="fas fa-search"></i>
+                  </a>                  
+                </div>
+            </header>
+            <div class="container">
+                <div class="info">
+                    <h2>Starbucks</h2>
+                    <div class="rating">
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span>$40.00</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.
+                    </p>
+                    <div class="count">
+                        <button onclick="dec()">-</button>
+                        <button id="num"></button>
+                        <button onclick="inc()">+</button>
+                    </div>
+                    <a href="#" class="btn">ADD TO CART</a>                    
+                </div>
+                <div class="imgBx">
+                    <div class="circle"><img src="bean.png"></div>
+                    <img src="img1.png" class="starbucks">
+                </div>
+                <div class="list">
+                    <div class="list_item">
+                        <img src="img1.png" onclick="imgSlider('img1.png');changeColor('#1b0b0f')">
+                    </div>
+                    <div class="list_item">
+                        <img src="img2.png" onclick="imgSlider('img2.png');changeColor('#b18d79')">
+                    </div>
+                    <div class="list_item">
+                        <img src="img3.png" onclick="imgSlider('img3.png');changeColor('#caa87d')">
+                    </div>
+                    <div class="list_item">
+                        <img src="img4.png" onclick="imgSlider('img4.png');changeColor('#c76352')">
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="cart"><i class="fas fa-shopping-bag"></i></a>
+        </section>
+
+
+        <script type="text/javascript">
+            var data = 0;
+            document.getElementById("num").innerText = data;
+
+            function dec(){
+                data = data - 1;
+                document.getElementById("num").innerText = data;
+            }
+            function inc(){
+                data = data + 1;
+                document.getElementById("num").innerText = data;
+            }
+
+
+            function imgSlider(anything){
+                document.querySelector('.starbucks').src = anything;
+            }
+
+            function changeColor(color){
+                const circle = document.querySelector('.circle');
+                circle.style.background = color;
+            }
+
+            window.addEventListener('scroll',function(){
+                var header = document.querySelector('header');
+                header.classList.toggle('sticky',window.scrollY > 0);
+            });
+
+            function toggleMenu(){
+                const toggleMenu = document.querySelector('.toggleMenu');
+                const navigation = document.querySelector('.navigation');
+                toggleMenu.classList.toggle('active')
+                navigation.classList.toggle('active')
+		   }
+        </script>
+    </body>
+</html>
